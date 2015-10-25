@@ -26,13 +26,6 @@
 
 </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/scan_barcode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:clickable="true"
-        android:src="@drawable/glyphicons_259_barcode"
-        android:layout_gravity="bottom|end"/>
+
 
 </FrameLayout>

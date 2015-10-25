@@ -37,6 +37,10 @@
             android:name=".CheckoutActivity"
             android:label="@string/title_activity_checkout" >
         </activity>
+        <activity
+            android:name=".AddOutfitActivity"
+            android:label="@string/title_activity_add_outfit" >
+        </activity>
     </application>
 
 </manifest>

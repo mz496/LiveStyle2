@@ -59,14 +59,6 @@ public class MainActivity extends AppCompatActivity
         });
 
         // buttons
-        final FloatingActionButton scanBarcodeButton = (FloatingActionButton) findViewById(R.id.scan_barcode);
-        scanBarcodeButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent goToScanBarcodeActivity = new Intent(MainActivity.this, ScanBarcodeActivity.class);
-                MainActivity.this.startActivity(goToScanBarcodeActivity);
-            }
-        });
-
         final Button giftButton = (Button) findViewById(R.id.gift_button);
         giftButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,7 +79,15 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void onFragmentInteraction(Uri uri) {}
+    public void onScanBarcodeButtonPressed() {
+        Intent goToScanBarcodeActivity = new Intent(MainActivity.this, ScanBarcodeActivity.class);
+        MainActivity.this.startActivity(goToScanBarcodeActivity);
+    }
+
+    public void onAddOutfitButtonPressed() {
+        Intent goToAddOutfitActivity = new Intent(MainActivity.this, AddOutfitActivity.class);
+        MainActivity.this.startActivity(goToAddOutfitActivity);
+    }
 
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {

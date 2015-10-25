@@ -1,8 +1,10 @@
 package com.example.matthew.livestyle2;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,13 +66,22 @@ public class ScanFeedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_scan_feed, container, false);
+        View v = inflater.inflate(R.layout.fragment_scan_feed, container, false);
+
+        final FloatingActionButton scanBarcodeButton = (FloatingActionButton) v.findViewById(R.id.scan_barcode);
+        scanBarcodeButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                onScanBarcodeButtonPressed();
+            }
+        });
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
+    public void onScanBarcodeButtonPressed() {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onScanBarcodeButtonPressed();
         }
     }
 
@@ -103,7 +114,7 @@ public class ScanFeedFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        public void onScanBarcodeButtonPressed();
     }
 
 }
