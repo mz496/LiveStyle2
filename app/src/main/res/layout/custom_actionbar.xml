@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:style="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/livestyle"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="25dp"
+        android:layout_height="24dp"
+        android:layout_gravity="center_vertical"
+        style="?android:attr/buttonBarButtonStyle"
+        android:background="@drawable/glyphicons_069_gift"
+        android:layout_marginRight="20dp"/>
+
+    <Button
+        android:layout_width="26dp"
+        android:layout_height="23dp"
+        android:layout_gravity="center_vertical"
+        style="?android:attr/buttonBarButtonStyle"
+        android:background="@drawable/glyphicons_202_shopping_cart"/>
+
+</LinearLayout>

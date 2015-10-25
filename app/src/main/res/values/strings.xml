@@ -4,4 +4,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_scan_barcode">ScanBarcodeActivity</string>
+    <string name="title_activity_scan_results">ScanResultsActivity</string>
+    <string name="title_activity_gift">GiftActivity</string>
+    <string name="title_activity_checkout">CheckoutActivity</string>
 </resources>

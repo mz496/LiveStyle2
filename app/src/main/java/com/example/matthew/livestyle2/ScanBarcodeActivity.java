@@ -1,5 +1,6 @@
 package com.example.matthew.livestyle2;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -101,20 +102,25 @@ public class ScanBarcodeActivity extends AppCompatActivity implements OnScanList
             String data = code.getData();
             // truncate code to certain length
             String cleanData = data;
-            if (data.length() > 30) {
+            /*if (data.length() > 30) {
                 cleanData = data.substring(0, 25) + "[...]";
             }
             if (message.length() > 0) {
                 message += "\n\n\n";
-            }
+            }*/
             message += cleanData;
-            message += "\n\n(" + code.getSymbologyName().toUpperCase() + ")";
+            //message += "\n\n(" + code.getSymbologyName().toUpperCase() + ")";
         }
-        if (mToast != null) {
+
+        Intent goToScanResultsActivity = new Intent(ScanBarcodeActivity.this, ScanResultsActivity.class);
+        goToScanResultsActivity.putExtra("barcode",message);
+        ScanBarcodeActivity.this.startActivity(goToScanResultsActivity);
+
+        /*if (mToast != null) {
             mToast.cancel();
         }
         mToast = Toast.makeText(this, message, Toast.LENGTH_LONG);
-        mToast.show();
+        mToast.show();*/
     }
 
     @Override

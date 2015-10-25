@@ -1,22 +1,21 @@
 package com.example.matthew.livestyle2;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBar;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class ScanResultsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_scan_results);
 
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.setDisplayShowHomeEnabled(false);
@@ -28,21 +27,16 @@ public class MainActivity extends AppCompatActivity {
         mActionBar.setCustomView(mCustomView);
         mActionBar.setDisplayShowCustomEnabled(true);
 
-        final Button scanBarcodeButton = (Button) findViewById(R.id.scan_barcode);
-        scanBarcodeButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent goToScanBarcodeActivity = new Intent(MainActivity.this, ScanBarcodeActivity.class);
-                MainActivity.this.startActivity(goToScanBarcodeActivity);
-            }
-        });
-
-
+        Intent fromScanBarcodeActivity = getIntent();
+        String barcodeData = fromScanBarcodeActivity.getStringExtra("barcode");
+        final TextView scanResults = (TextView) findViewById(R.id.scan_results);
+        scanResults.setText(barcodeData);
     }
 
     /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_scan_results, menu);
         return true;
     }
 
