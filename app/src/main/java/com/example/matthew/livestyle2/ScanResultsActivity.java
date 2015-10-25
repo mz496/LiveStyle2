@@ -37,8 +37,8 @@ public class ScanResultsActivity extends AppCompatActivity {
         // outfits containing this item
         ImageAdapter adapter = new ImageAdapter(this);
         adapter.addThumb(R.drawable.placeholder);
-        adapter.addThumb(R.drawable.placeholder);
-        adapter.addThumb(R.drawable.placeholder);
+        adapter.addThumb(R.drawable.landscape);
+        adapter.addThumb(R.drawable.landscape);
         adapter.addThumb(R.drawable.placeholder);
         
         GridView gridview = (GridView) findViewById(R.id.outfits_scan_gridview);

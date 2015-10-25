@@ -1,6 +1,7 @@
 package com.example.matthew.livestyle2;
 
 import android.app.Activity;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -8,6 +9,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
 /**
@@ -74,7 +78,25 @@ public class OutfitFeedFragment extends Fragment {
             }
         });
 
-        return v;    }
+        final LayoutInflater layout_inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final LinearLayout feed = (LinearLayout) v.findViewById(R.id.outfit_feed_content);
+
+        String[][] data = {
+                {"A","20m","Nike","$1",Integer.toString(R.drawable.placeholder)},
+                {"B","21m","Nikee","$2",Integer.toString(R.drawable.landscape)}};
+
+        for (int entry = 0; entry < data.length; entry++) {
+            LinearLayout feed_item = (LinearLayout) layout_inflater.inflate(R.layout.feed_item, null);
+            ((TextView) feed_item.findViewById(R.id.feed_item_name)).setText(data[entry][0]);
+            ((TextView) feed_item.findViewById(R.id.feed_item_time_ago)).setText(data[entry][1]);
+            ((TextView) feed_item.findViewById(R.id.feed_item_brand)).setText(data[entry][2]);
+            ((TextView) feed_item.findViewById(R.id.feed_item_price)).setText(data[entry][3]);
+            ((ImageView) feed_item.findViewById(R.id.feed_item_image)).setImageDrawable(getResources().getDrawable(Integer.valueOf(data[entry][4]), getContext().getTheme()));
+            feed.addView(feed_item);
+        }
+
+        return v;
+    }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onAddOutfitButtonPressed() {

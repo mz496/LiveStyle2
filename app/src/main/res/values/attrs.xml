@@ -7,5 +7,6 @@
     <!--   theme UI controls like checkboxes and text fields -->
     <color name="colorAccent">#FF4081</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
     <color name="divider">#bbbbbb</color>
 </resources>

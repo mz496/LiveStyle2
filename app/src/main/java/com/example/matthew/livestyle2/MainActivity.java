@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatImageButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         });
 
         // buttons
-        final Button giftButton = (Button) findViewById(R.id.gift_button);
+        final AppCompatImageButton giftButton = (AppCompatImageButton) findViewById(R.id.gift_button);
         giftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        final Button checkoutButton = (Button) findViewById(R.id.checkout_button);
+        final AppCompatImageButton checkoutButton = (AppCompatImageButton) findViewById(R.id.checkout_button);
         checkoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

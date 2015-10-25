@@ -1,14 +1,20 @@
 package com.example.matthew.livestyle2;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 
 /**
@@ -74,6 +80,37 @@ public class ScanFeedFragment extends Fragment {
                 onScanBarcodeButtonPressed();
             }
         });
+
+        final LayoutInflater layout_inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final LinearLayout feed = (LinearLayout) v.findViewById(R.id.scan_feed_content);
+
+        String[][] data = {
+                {"A","20m","Nike","$1",Integer.toString(R.drawable.placeholder),"http://www.google.com"},
+                {"B","21m","Nikee","$2",Integer.toString(R.drawable.placeholder),"http://www.google.com"}};
+
+        for (int entry = 0; entry < data.length; entry++) {
+            LinearLayout feed_item = (LinearLayout) layout_inflater.inflate(R.layout.feed_item, null);
+            ((TextView) feed_item.findViewById(R.id.feed_item_name)).setText(data[entry][0]);
+            ((TextView) feed_item.findViewById(R.id.feed_item_time_ago)).setText(data[entry][1]);
+            ((TextView) feed_item.findViewById(R.id.feed_item_brand)).setText(data[entry][2]);
+            ((TextView) feed_item.findViewById(R.id.feed_item_price)).setText(data[entry][3]);
+
+            ImageView pic = (ImageView) feed_item.findViewById(R.id.feed_item_image);
+            pic.setImageDrawable(getResources().getDrawable(Integer.valueOf(data[entry][4]), getContext().getTheme()));
+
+            final String url = (!data[entry][5].startsWith("http://") && !data[entry][5].startsWith("https://")) ?
+                "http://" + data[entry][5] : data[entry][5];
+
+            pic.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(browserIntent);
+                }
+            });
+
+            feed.addView(feed_item);
+        }
 
         return v;
     }

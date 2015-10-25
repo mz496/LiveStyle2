@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/feed_item_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center_vertical|start"
+            android:text="NAME"/>
+        <TextView
+            android:id="@+id/feed_item_brand"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center_vertical|end"
+            android:text="BRAND"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/feed_item_time_ago"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center_vertical|start"
+            android:text="TIME AGO"/>
+        <TextView
+            android:id="@+id/feed_item_price"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:gravity="center_vertical|end"
+            android:text="PRICE"/>
+    </LinearLayout>
+
+    <!--View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"/-->
+
+    <ImageView
+        android:id="@+id/feed_item_image"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/black"
+        android:scaleType="centerInside"
+        android:layout_marginTop="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+        <ImageButton
+            android:layout_width="24dp"
+            android:layout_height="22dp"
+            android:src="@drawable/glyphicons_012_heart"
+            android:layout_marginRight="12dp"/>
+        <ImageButton
+            android:layout_width="24dp"
+            android:layout_height="23dp"
+            android:src="@drawable/glyphicons_309_comments"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"/>
+
+</LinearLayout>

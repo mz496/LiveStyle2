@@ -17,21 +17,21 @@
         android:layout_height="match_parent"
         android:layout_weight="1"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/gift_button"
         android:layout_width="25dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
         style="?android:attr/buttonBarButtonStyle"
-        android:background="@drawable/glyphicons_069_gift"
+        android:src="@drawable/glyphicons_069_gift"
         android:layout_marginRight="25dp"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/checkout_button"
         android:layout_width="26dp"
         android:layout_height="23dp"
         android:layout_gravity="center_vertical"
         style="?android:attr/buttonBarButtonStyle"
-        android:background="@drawable/glyphicons_202_shopping_cart"/>
+        android:src="@drawable/glyphicons_202_shopping_cart"/>
 
 </LinearLayout>
