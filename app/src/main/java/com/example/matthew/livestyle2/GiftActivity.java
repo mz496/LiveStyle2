@@ -4,6 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
+
+import org.w3c.dom.Text;
 
 public class GiftActivity extends AppCompatActivity {
 
@@ -11,6 +16,24 @@ public class GiftActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gift);
+
+        TextAdapter adapter = new TextAdapter(this);
+        adapter.addText("$10 off at Macy's");
+        adapter.addText("$15 off at H&M");
+        adapter.addText("$5 off at Gucci");
+        adapter.addText("$20 off at Louis Vuitton");
+        adapter.addText("$10 off at Dior");
+        adapter.addText("$15 off at Hugo Boss");
+
+        GridView gridview = (GridView) findViewById(R.id.gift_gridview);
+        gridview.setAdapter(adapter);
+
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View v,
+                                    int position, long id) {
+                System.out.println(Integer.toString(position));
+            }
+        });
     }
 
     @Override

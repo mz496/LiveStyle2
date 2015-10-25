@@ -30,4 +30,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:design:23.1.0'
     compile(name:'ScanditBarcodeScanner', ext:'aar')
+    compile 'com.pubnub:pubnub-android:3.7.5'
+    compile 'com.squareup.picasso:picasso:2.4.0'
 }

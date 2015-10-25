@@ -15,6 +15,7 @@
         android:paddingRight="16dp">
 
         <ImageView
+            android:id="@+id/scan_results_image"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.3"
@@ -27,13 +28,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/scan_results"
+                android:id="@+id/scan_results_name"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.5"
                 android:gravity="center_vertical|end"
-                android:text=""/>
+                android:text="Unknown"/>
             <TextView
+                android:id="@+id/scan_results_price"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.5"

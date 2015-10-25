@@ -1,9 +1,14 @@
 package com.example.matthew.livestyle2;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 public class AddOutfitActivity extends AppCompatActivity {
 
@@ -11,6 +16,13 @@ public class AddOutfitActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_outfit);
+
+        Intent fromMainActivity = getIntent();
+        Bitmap selected_image = fromMainActivity.getParcelableExtra("selected_image");
+
+        BitmapDrawable d = new BitmapDrawable(getResources(), selected_image);
+        final ImageView preview = (ImageView) findViewById(R.id.selected_image_preview);
+        preview.setImageDrawable(d);
     }
 
     @Override

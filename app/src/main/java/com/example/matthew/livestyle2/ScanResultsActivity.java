@@ -8,9 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ScanResultsActivity extends AppCompatActivity {
+
+    public static String[][] products = {
+            {"888452015038","Kenneth Cole Reaction Nep Pocket T","$14.99",Integer.toString(R.drawable.kennethcole)},
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +37,15 @@ public class ScanResultsActivity extends AppCompatActivity {
         // get barcode scan result
         Intent fromScanBarcodeActivity = getIntent();
         String barcodeData = fromScanBarcodeActivity.getStringExtra("barcode");
-        final TextView scanResults = (TextView) findViewById(R.id.scan_results);
-        scanResults.setText(barcodeData);
+        for (int i = 0; i < products.length; i++) {
+            if (products[i][0].equals(barcodeData)) {
+                ((TextView) findViewById(R.id.scan_results_name)).setText(products[i][1]);
+                ((TextView) findViewById(R.id.scan_results_price)).setText(products[i][2]);
+                ImageView pic = ((ImageView) findViewById(R.id.scan_results_image));
+                pic.setImageDrawable(getResources().getDrawable(Integer.valueOf(products[i][3]), getTheme()));
+
+            }
+        }
 
         // outfits containing this item
         ImageAdapter adapter = new ImageAdapter(this);

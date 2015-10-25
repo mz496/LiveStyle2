@@ -1,21 +1,25 @@
 package com.example.matthew.livestyle2;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 /**
  * Created by Matthew on 10/25/2015.
  */
-public class ImageAdapter extends BaseAdapter {
+public class TextAdapter extends BaseAdapter {
     private Context mContext;
 
-    public ImageAdapter(Context c) {
+    public TextAdapter(Context c) {
         mContext = c;
     }
 
@@ -33,32 +37,25 @@ public class ImageAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+        TextView imageView;
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
+            imageView = new TextView(mContext);
             imageView.setLayoutParams(new GridView.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
-                    300));
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            //imageView.setPadding(2, 2, 2, 2);
+                    200));
         } else {
-            imageView = (ImageView) convertView;
+            imageView = (TextView) convertView;
         }
 
-        imageView.setImageResource(mThumbIds.get(position));
+        imageView.setText(mThumbIds.get(position));
+        imageView.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
         return imageView;
     }
 
-    // references to our images
-    // write these at runtime
-    private ArrayList<Integer> mThumbIds = new ArrayList<>();
+    private ArrayList<String> mThumbIds = new ArrayList<>();
 
-    public void addThumb(Integer thumb) {
-        mThumbIds.add(thumb);
-    }
-
-    public void addText(String title, String subtitle) {
-
+    public void addText(String title) {
+        mThumbIds.add(title);
     }
 }

@@ -2,8 +2,13 @@ package com.example.matthew.livestyle2;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -65,6 +70,30 @@ public class OutfitFeedFragment extends Fragment {
         }
     }
 
+    public static final int RESULT_OK = -1;
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                System.out.println("DONE");
+                Uri selectedImage = data.getData();
+                String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+                Cursor cursor = getActivity().getContentResolver().query(
+                        selectedImage, filePathColumn, null, null, null);
+                cursor.moveToFirst();
+
+                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                String filePath = cursor.getString(columnIndex);
+                cursor.close();
+
+
+                Bitmap yourSelectedImage = BitmapFactory.decodeFile(filePath);
+
+                onAddOutfitButtonPressed(yourSelectedImage);
+            }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -74,7 +103,10 @@ public class OutfitFeedFragment extends Fragment {
         final FloatingActionButton scanBarcodeButton = (FloatingActionButton) v.findViewById(R.id.add_outfit);
         scanBarcodeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                onAddOutfitButtonPressed();
+                Intent intent = new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(intent, 0);
+                //onAddOutfitButtonPressed();
             }
         });
 
@@ -99,9 +131,9 @@ public class OutfitFeedFragment extends Fragment {
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onAddOutfitButtonPressed() {
+    public void onAddOutfitButtonPressed(Bitmap b) {
         if (mListener != null) {
-            mListener.onAddOutfitButtonPressed();
+            mListener.onAddOutfitButtonPressed(b);
         }
     }
 
@@ -134,7 +166,7 @@ public class OutfitFeedFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onAddOutfitButtonPressed();
+        public void onAddOutfitButtonPressed(Bitmap b);
     }
 
 }
