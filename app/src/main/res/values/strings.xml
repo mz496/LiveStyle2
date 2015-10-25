@@ -7,4 +7,7 @@
     <string name="title_activity_scan_results">ScanResultsActivity</string>
     <string name="title_activity_gift">GiftActivity</string>
     <string name="title_activity_checkout">CheckoutActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

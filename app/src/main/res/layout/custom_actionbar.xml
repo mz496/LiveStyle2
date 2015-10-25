@@ -4,7 +4,6 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
     android:paddingTop="5dp"
     android:paddingBottom="5dp">
 
@@ -19,14 +18,16 @@
         android:layout_weight="1"/>
 
     <Button
+        android:id="@+id/gift_button"
         android:layout_width="25dp"
         android:layout_height="24dp"
         android:layout_gravity="center_vertical"
         style="?android:attr/buttonBarButtonStyle"
         android:background="@drawable/glyphicons_069_gift"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="25dp"/>
 
     <Button
+        android:id="@+id/checkout_button"
         android:layout_width="26dp"
         android:layout_height="23dp"
         android:layout_gravity="center_vertical"
