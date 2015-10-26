@@ -13,11 +13,6 @@ import android.widget.TextView;
 
 public class ScanResultsActivity extends AppCompatActivity {
 
-    public static String[][] products = {
-            {"888452015038","Kenneth Cole Reaction Nep Pocket T","$14.99",Integer.toString(R.drawable.kennethcole)},
-
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,12 +32,12 @@ public class ScanResultsActivity extends AppCompatActivity {
         // get barcode scan result
         Intent fromScanBarcodeActivity = getIntent();
         String barcodeData = fromScanBarcodeActivity.getStringExtra("barcode");
-        for (int i = 0; i < products.length; i++) {
-            if (products[i][0].equals(barcodeData)) {
-                ((TextView) findViewById(R.id.scan_results_name)).setText(products[i][1]);
-                ((TextView) findViewById(R.id.scan_results_price)).setText(products[i][2]);
+        for (int i = 0; i < Global.products.length; i++) {
+            if (Global.products[i][0].equals(barcodeData)) {
+                ((TextView) findViewById(R.id.scan_results_name)).setText(Global.products[i][1]);
+                ((TextView) findViewById(R.id.scan_results_price)).setText(Global.products[i][2]);
                 ImageView pic = ((ImageView) findViewById(R.id.scan_results_image));
-                pic.setImageDrawable(getResources().getDrawable(Integer.valueOf(products[i][3]), getTheme()));
+                pic.setImageDrawable(getResources().getDrawable(Integer.valueOf(Global.products[i][3]), getTheme()));
 
             }
         }

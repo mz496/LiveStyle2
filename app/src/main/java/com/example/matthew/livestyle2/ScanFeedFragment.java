@@ -73,8 +73,8 @@ public class ScanFeedFragment extends Fragment {
     }
 
     String[][] data = {
-            {"A","20m","Nike","$1",Integer.toString(R.drawable.placeholder),"http://www.google.com"},
-            {"B","21m","Nikee","$2",Integer.toString(R.drawable.placeholder),"http://www.google.com"}};
+            {"Derek Young","20m","H&M","$20",Integer.toString(R.drawable.placeholder),"http://www.google.com"},
+            {"Kevin Yang","2d","Kenneth Cole","$14",Integer.toString(R.drawable.landscape),"http://www.google.com"}};
 
     View root_view;
 

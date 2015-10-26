@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity
 
     public void onAddOutfitButtonPressed(Bitmap b) {
         Intent goToAddOutfitActivity = new Intent(MainActivity.this, AddOutfitActivity.class);
-        goToAddOutfitActivity.putExtra("selected_image",b);
+        //goToAddOutfitActivity.putExtra("selected_image",b);
         MainActivity.this.startActivity(goToAddOutfitActivity);
     }
 

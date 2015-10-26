@@ -87,7 +87,7 @@ public class OutfitFeedFragment extends Fragment {
                 String filePath = cursor.getString(columnIndex);
                 cursor.close();
 
-
+                Global.img = BitmapFactory.decodeFile(filePath);
                 Bitmap yourSelectedImage = BitmapFactory.decodeFile(filePath);
 
                 onAddOutfitButtonPressed(yourSelectedImage);
@@ -114,8 +114,8 @@ public class OutfitFeedFragment extends Fragment {
         final LinearLayout feed = (LinearLayout) v.findViewById(R.id.outfit_feed_content);
 
         String[][] data = {
-                {"A","20m","Nike","$1",Integer.toString(R.drawable.placeholder)},
-                {"B","21m","Nikee","$2",Integer.toString(R.drawable.landscape)}};
+                {"Kevin Yang","","30m","",Integer.toString(R.drawable.outfit2)},
+                {"Matthew Zhu","","3d","",Integer.toString(R.drawable.outfit2)}};
 
         for (int entry = 0; entry < data.length; entry++) {
             LinearLayout feed_item = (LinearLayout) layout_inflater.inflate(R.layout.feed_item, null);

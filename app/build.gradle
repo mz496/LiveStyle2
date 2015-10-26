@@ -32,4 +32,5 @@ dependencies {
     compile(name:'ScanditBarcodeScanner', ext:'aar')
     compile 'com.pubnub:pubnub-android:3.7.5'
     compile 'com.squareup.picasso:picasso:2.4.0'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
 }
